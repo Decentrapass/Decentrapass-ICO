@@ -28,7 +28,7 @@ export default class LiveStats extends Component {
 
   render() {
     let timeLeft = this.state.timeLeft;
-    if (timeLeft[0] <= 24) {
+    if (timeLeft[0] <= 24 && timeLeft[0] >= 0) {
       timeLeft =
         timeLeft[0] + ":" + timeLeft[1] + ":" + timeLeft[2] + " until end";
     } else if (timeLeft[0] < 0) {

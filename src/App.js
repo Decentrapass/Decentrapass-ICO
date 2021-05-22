@@ -15,8 +15,6 @@ class App extends Component {
     let total = 5;
     let percentage = (100 * current) / total;
 
-    let endTime = new Date("2021-05-22, 12:00:00");
-
     return (
       <div className="font-sans flex flex-col justify-center items-center bg-green-50 py-10">
         <h1 className="font-black text-5xl flex flex-col text-center">
@@ -35,28 +33,30 @@ class App extends Component {
           access your information.
         </p>
         <div className="flex flex-col items-center justify-center w-3/4 mt-20">
-          <h1 className="font-black text-5xl">Information</h1>
-          <div className="flex w-full justify-between items-center">
-            <CircularProgressbarWithChildren
-              value={current}
-              maxValue={total}
-              styles={buildStyles({
-                pathColor: "#10B981",
-              })}
-            >
-              <div className="flex flex-col items-center justify-center font-mono">
-                <h2 className="font-black text-6xl">
-                  {percentage}
-                  <span className="text-green-500">%</span>
-                </h2>
-              </div>
-            </CircularProgressbarWithChildren>
-            <div>
-              <h3 className="text-3xl mt-10">Live Stats:</h3>
+          <h1 className="font-black text-5xl mb-5">Information</h1>
+          <div className="flex w-full justify-evenly items-center">
+            <div className="h-52 w-52 flex justify-center items-center">
+              <CircularProgressbarWithChildren
+                value={current}
+                maxValue={total}
+                styles={buildStyles({
+                  pathColor: "#10B981",
+                })}
+              >
+                <div className="flex flex-col items-center justify-center">
+                  <h2 className="font-black text-5xl">
+                    {percentage}
+                    <span className="text-green-500">%</span>
+                  </h2>
+                </div>
+              </CircularProgressbarWithChildren>
+            </div>
+            <div className="flex flex-col justify-center">
+              <h3 className="text-3xl">Live Stats:</h3>
               <LiveStats />
             </div>
-            <div>
-              <h3 className="text-3xl mt-10">ICO Stats:</h3>
+            <div className="flex flex-col justify-center">
+              <h3 className="text-3xl">ICO Stats:</h3>
               <FixedStats />
             </div>
           </div>
